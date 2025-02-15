@@ -14,11 +14,11 @@ RUN go mod download
 #note that i will probably also need to copy the content ogf the fiolder webpages, as soon as i load them
 #or maybe it is cleaner to instead mounbt them to the container?
 #TODO try out and find out:)
-COPY --parents *.go ./
+#note this works but is not so nice as it also copies test files. 
+#todo find better solution
+COPY . ./
 
-#for debugging, one may hope this works...
-CMD ["ls"]
 # Build
 #CGO_ENABLED=0 -> runs without external dependencies
-#RUN CGO_ENABLED=0 GOOS=linux go build -o my_application.exe ./cmd/web
-#CMD ["/my_application"]
+RUN CGO_ENABLED=0 GOOS=linux go build -o my_application.exe ./cmd/web
+CMD ["/my_application"]
