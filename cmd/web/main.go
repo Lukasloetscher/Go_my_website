@@ -12,7 +12,7 @@ import (
 // TODO move into a proper package...
 func Get_Port_From_Env() string {
 	val, ok := os.LookupEnv("PORT")
-	if !ok {
+	if ok {
 		return val
 	} else {
 		return "8080" //default case, if the port is not defined in the envirement.
