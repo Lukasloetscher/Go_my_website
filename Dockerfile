@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.23.5
+FROM golang:1.24.0
 
 # Set destination for COPY
 WORKDIR /app
@@ -16,6 +16,9 @@ RUN go mod download
 #TODO try out and find out:)
 COPY *.go ./
 
+#for debugging, one may hope this works...
+CMD ["ls"]
 # Build
-RUN CGO_ENABLED=0 GOOS=linux go build -o my_application.exe ./cmd/web
-CMD ["/my_application"]
+#CGO_ENABLED=0 -> runs without external dependencies
+#RUN CGO_ENABLED=0 GOOS=linux go build -o my_application.exe ./cmd/web
+#CMD ["/my_application"]
