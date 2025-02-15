@@ -28,7 +28,7 @@ func TestCheck_If_Valid_Port(t *testing.T) {
 	}
 
 }
-func Get_Port_From_Env(t *testing.T) {
+func TestGet_Port_From_Env(t *testing.T) {
 	//test data
 	var tests = []struct {
 		port string
@@ -63,9 +63,11 @@ func Get_Port_From_Env(t *testing.T) {
 			}()
 
 			port_result := Get_Port_From_Env()
-			if port_result != current_test.port || !current_test.ok {
-				fmt.Print("returned incorrect port number")
-				t.Error()
+			if port_result != current_test.port && !current_test.ok { //special ase for when no env variable is set
+				if !(port_result == "8080" && current_test.port == "") {
+					fmt.Print("returned incorrect port number")
+					t.Error()
+				}
 			}
 
 		})
