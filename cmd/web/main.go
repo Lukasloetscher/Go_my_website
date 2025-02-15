@@ -28,6 +28,10 @@ func Check_If_Valid_Port(port string) (ok bool) {
 const port_env string = "PORT"
 
 // Get_Port_From_Env() gets thed port from the envirement. Used for docker.
+// After reading up on how port forwarding works in docker, this code is a bit redundant.
+// That beeing said, i still leave it here, so i can check if the LookupEnv works in docker as i expect.
+// Also there is no real harm in it.
+// I might delete this later.
 // TODO move into a proper package...
 func Get_Port_From_Env() (port string) {
 	port, ok := os.LookupEnv(port_env)
