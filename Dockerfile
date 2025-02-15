@@ -20,5 +20,5 @@ COPY . ./
 
 # Build
 #CGO_ENABLED=0 -> runs without external dependencies
-RUN CGO_ENABLED=0 GOOS=linux go build -o my_application.exe ./cmd/web
+RUN CGO_ENABLED=0 GOOS=linux go build -o my_application ./cmd/web
 CMD ["/my_application"]
