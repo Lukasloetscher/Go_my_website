@@ -25,10 +25,12 @@ func Check_If_Valid_Port(port string) (ok bool) {
 	}
 }
 
+const port_env string = "PORT"
+
 // Get_Port_From_Env() gets thed port from the envirement. Used for docker.
 // TODO move into a proper package...
 func Get_Port_From_Env() (port string) {
-	port, ok := os.LookupEnv("PORT")
+	port, ok := os.LookupEnv(port_env)
 	if ok {
 		if Check_If_Valid_Port(port) {
 			return port

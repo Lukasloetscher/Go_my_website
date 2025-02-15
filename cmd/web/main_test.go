@@ -15,6 +15,7 @@ func TestCheck_If_Valid_Port(t *testing.T) {
 		{"1215a125", false},
 		{"fagf", false},
 		{"1234", true},
+		{"", false},
 	}
 
 	//test functionality
