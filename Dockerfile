@@ -18,8 +18,11 @@ RUN go mod download
 #todo find better solution
 COPY . ./
 
+#expose a port:
+#sadly even so the documentations says, this is optional, i need to do this here, and can not do this "only" in the docker desktop add on windows.
+EXPOSE 8080
+
 # Build
 #CGO_ENABLED=0 -> runs without external dependencies
 RUN CGO_ENABLED=0 GOOS=linux go build -o /my_app ./cmd/web
 CMD ["/my_app"]
-#CMD ["ls"]
