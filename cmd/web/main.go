@@ -12,12 +12,14 @@ import (
 // Check_If_Valid_Port checks if the entry is a valid port umber, i.e. it needs to be numeric.
 // Currently we do not test, wheter it is a reasonable port number
 // TODO move into a proper package...
+// When moving this should include the test function
 func Check_If_Valid_Port(port string) (ok bool) {
 	matched, err := regexp.MatchString("[0-9]+", port)
 	if err != nil {
-		return matched
-	} else {
 		panic(err)
+	} else {
+		return matched
+
 	}
 }
 
