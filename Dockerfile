@@ -14,7 +14,7 @@ RUN go mod download
 #note that i will probably also need to copy the content ogf the fiolder webpages, as soon as i load them
 #or maybe it is cleaner to instead mounbt them to the container?
 #TODO try out and find out:)
-COPY *.go ./
+COPY --parents *.go ./
 
 #for debugging, one may hope this works...
 CMD ["ls"]
