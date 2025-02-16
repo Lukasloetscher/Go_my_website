@@ -49,7 +49,10 @@ func Get_Port_From_Env() (port string) {
 func main() {
 
 	mux := chi.NewRouter()
-	mux.Get("/", func(w http.ResponseWriter, r *http.Request) { w.Write([]byte("usghskjghsehg")) })
+	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("called Get function")
+		w.Write([]byte("usghskjghsehg"))
+	})
 
 	Port := Get_Port_From_Env() //Todo we later need to handle panics!
 
