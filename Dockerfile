@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.24.0
+FROM golang:1.24.0 AS build-stage
 
 # Set destination for COPY
 WORKDIR /app
@@ -18,11 +18,33 @@ RUN go mod download
 #todo find better solution
 COPY . ./
 
+# Build
+#CGO_ENABLED=0 -> runs without external dependencies
+RUN CGO_ENABLED=0 GOOS=linux go build -o /my_app ./cmd/web
+
+#copied from tutorial, check if this is the right place, and more importantly
+# what happens if the test fails.
+FROM build-stage AS run-test-stage
+RUN go test -v ./...
+
+
+#copy only the relevant files from the build into the release stage:
+FROM gcr.io/distroless/base-debian11 AS build-release-stage
+
+WORKDIR /
+
+COPY --from=build-stage /my_app /my_app
+
 #expose a port:
 #sadly even so the documentations says, this is optional, i need to do this here, and can not do this "only" in the docker desktop add on windows.
 EXPOSE 8080
 
-# Build
-#CGO_ENABLED=0 -> runs without external dependencies
-RUN CGO_ENABLED=0 GOOS=linux go build -o /my_app ./cmd/web
+
+ 
+#makes it so the program is not run as root(?)
+USER nonroot:nonroot
+
 CMD ["/my_app"]
+
+
+#to start docker run -d -p 8080:8080 lukasloetscher/lulo_tryout
