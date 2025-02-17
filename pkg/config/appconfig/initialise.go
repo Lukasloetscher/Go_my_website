@@ -8,7 +8,7 @@ func Initialise_App_Config() (app_ptr *AppConfig, err error) {
 	//This is currently hardcoded, but should be later loaded from a file or through other means.
 	var app_config AppConfig
 	app_config.InProduction = false
-	app_config.Portnumber = initialse_Port_Number()
+	app_config.Port = initialse_Port_Number()
 	return &app_config, nil
 }
 

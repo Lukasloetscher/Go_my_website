@@ -16,7 +16,7 @@ func TestInitialise_App_Config(t *testing.T) {
 
 //Testinitialse_Port_Number()
 //Makes sure the string is :8080
-func Testinitialse_Port_Number(t *testing.T) {
+func TestInitialse_Port_Number(t *testing.T) {
 	t.Run("Initialise App_Config", func(t *testing.T) {
 		Port := initialse_Port_Number()
 		if Port != ":8080" {
