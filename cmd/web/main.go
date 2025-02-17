@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	getport "github.com/Lukasloetscher/Go_my_website/get_port"
+	getport "github.com/Lukasloetscher/Go_my_website/util/get_port"
 	"github.com/go-chi/chi"
 )
 
