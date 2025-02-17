@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+// TestCheck_If_Valid_Port()
+// Test to check if the port validation works as intended
 func TestCheck_If_Valid_Port(t *testing.T) {
 	//test data
 	var tests = []struct {
@@ -29,6 +31,9 @@ func TestCheck_If_Valid_Port(t *testing.T) {
 	}
 
 }
+
+// TestGet_Port_From_Env()
+// Test to check if the port is correctly read from the envirement.
 func TestGet_Port_From_Env(t *testing.T) {
 	//test data
 	var tests = []struct {
