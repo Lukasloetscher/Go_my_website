@@ -56,3 +56,39 @@ func TestLoad_Template_From_File(t *testing.T) {
 		}
 	})
 }
+
+// TestGet_Template()
+// Tests if this code runs without an error
+// TODO look up if there is a way, to mok a filesystem, for testing.
+// also currecntly this code only tests if the code runs
+func TestGet_Template(t *testing.T) {
+	t.Run("TestLoad_Template_From_File", func(t *testing.T) {
+		defer my_testing.Check_For_Panic(t, false)
+
+		var paths Render_Filepaths
+		paths.Filepath_Html = ""
+		paths.Filepath_Layout = ""
+		ts := Get_Template(paths)
+		if ts == nil {
+			t.Error()
+		}
+	})
+}
+
+// TestCreate_Rendered_Template()
+// Tests if this code runs without an error
+// TODO look up if there is a way, to mok a filesystem, for testing.
+// also currecntly this code only tests if the code runs
+func TestCreate_Rendered_Template(t *testing.T) {
+	t.Run("TestCreate_Rendered_Template", func(t *testing.T) {
+		defer my_testing.Check_For_Panic(t, false)
+
+		var paths Render_Filepaths
+		paths.Filepath_Html = ""
+		paths.Filepath_Layout = ""
+		buf := Create_Rendered_Template(paths, nil)
+		if buf == nil {
+			t.Error()
+		}
+	})
+}
