@@ -12,16 +12,14 @@ import (
 func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 
 	mux := chi.NewRouter()
-	//Add_Middleware to server
+
 	mymiddleware.Include_Middleware(app_ptr, mux)
 	//Add manual Handlers to Server.
 
 	//Add generic Routes
 
-	//Create Server
 	srv := Create_Server(app_ptr, mux)
 
-	//start to listen to server.
 	go srv.ListenAndServe()
 	return nil
 }
