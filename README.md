@@ -7,7 +7,20 @@ This also means that i will (or at least paln) to create the code fast,a nd then
 
 Currebntly the website is build with docker and then deployed to a Ubuntu VM
 
-
+used commands:
+ docker build --tag lukasloetscher/lulo_tryout .
+ -> then use docker desktop to push it
+ -> open cmd of ubuntu vm
+ -> stop container 
+   -> docker ps
+   -> docker stop {name}
+-> update the image
+  -> docker pull lukasloetscher/lulo_tryout
+  -> check with : docker images
+-> start the docker: (maybe you need to change
+  -> docker run -d -p 80:8080 lukasloetscher/lulo_tryout
+  -> check with docker ps
+  -> check by visitign the webpage
 
 My notes:
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
