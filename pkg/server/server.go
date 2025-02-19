@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/Lukasloetscher/Go_my_website/pkg/config/appconfig"
+	"github.com/Lukasloetscher/Go_my_website/pkg/mymiddleware"
 	"github.com/go-chi/chi"
 )
 
@@ -12,7 +13,7 @@ func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 
 	mux := chi.NewRouter()
 	//Add_Middleware to server
-
+	mymiddleware.Include_Middleware(app_ptr, mux)
 	//Add manual Handlers to Server.
 
 	//Add generic Routes
