@@ -9,11 +9,11 @@ func Check_For_Panic(t *testing.T, should_panic bool) {
 	r := recover()
 	did_panic := r != nil
 	if did_panic && !should_panic {
-		fmt.Print("did incorrectly panic")
+		fmt.Println("did incorrectly panic")
 		t.Error()
 	}
 	if !did_panic && should_panic {
-		fmt.Print("did not panic but should have")
+		fmt.Println("did not panic but should have")
 		t.Error()
 	}
 }
