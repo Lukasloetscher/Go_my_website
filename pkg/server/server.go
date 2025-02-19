@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/Lukasloetscher/Go_my_website/pkg/config/appconfig"
+	"github.com/Lukasloetscher/Go_my_website/pkg/handlers"
+	generichandlers "github.com/Lukasloetscher/Go_my_website/pkg/handlers/generic_handlers"
 	"github.com/Lukasloetscher/Go_my_website/pkg/mymiddleware"
 	"github.com/go-chi/chi"
 )
@@ -14,10 +16,16 @@ func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 	mux := chi.NewRouter()
 
 	mymiddleware.Include_Middleware(app_ptr, mux)
-	//Add manual Handlers to Server.
 
-	//Add generic Routes
+	err := handlers.Add_Manual_Handlers(app_ptr, mux)
+	if err != nil {
+		panic(err)
+	}
 
+	err = generichandlers.Add_Generic_Handlers(app_ptr, mux)
+	if err != nil {
+		panic(err)
+	}
 	srv := Create_Server(app_ptr, mux)
 
 	go srv.ListenAndServe()
