@@ -1,12 +1,13 @@
 package main
 
 import (
+	"bufio"
+	"fmt"
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/Lukasloetscher/Go_my_website/pkg/config/appconfig"
-	"github.com/go-chi/chi"
+	"github.com/Lukasloetscher/Go_my_website/pkg/server"
 )
 
 func main() {
@@ -17,17 +18,23 @@ func main() {
 		log.Fatal("error with initialising_App_Config")
 	}
 
-	mux := chi.NewRouter()
-	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("called Get function")
-		w.Write([]byte("usghskjghsehg"))
-	})
-
-	srv := &http.Server{
-		Addr:    app_ptr.Port,
-		Handler: mux,
+	err = server.Create_and_Start_Server(app_ptr)
+	if err != nil {
+		log.Fatal("error with starting the server")
 	}
-	os.Getenv("PORT")
-	err = srv.ListenAndServe()
-	log.Fatal(err)
+
+	//just wait till the program is ended.
+	//todo make this cleaner
+	if app_ptr.InProduction {
+		for {
+		} //endless loop
+	} else {
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("End the program by pressing enter")
+		_, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
 }
