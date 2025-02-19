@@ -46,6 +46,3 @@ USER nonroot:nonroot
 
 CMD ["/my_app"]
 
-
-#to start docker run -d -p 8080:8080 lukasloetscher/lulo_tryout
-#to build docker build --tag lukasloetscher/lulo_tryout .
