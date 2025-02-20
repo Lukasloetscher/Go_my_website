@@ -17,11 +17,11 @@ import (
 // adds the handlers to the code, whicha re generated automatically, based on the files in the specifided fodler
 func Add_Generic_Handlers(app_ptr *appconfig.AppConfig, mux *chi.Mux) error {
 
-	err := filepath.WalkDir(app_ptr.Webpage_Location, func(path string, d fs.DirEntry, err error) error {
+	err := filepath.WalkDir(app_ptr.Gen_Pages.Webpage_Location, func(path string, d fs.DirEntry, err error) error {
 		if strings.HasSuffix(path, ".generic_page.tmpl") {
 			name, _ := strings.CutSuffix(path, ".generic_page.tmpl")
 			name = strings.ReplaceAll(name, "\\", "/")
-			name, _ = strings.CutPrefix(name, app_ptr.Webpage_Location)
+			name, _ = strings.CutPrefix(name, app_ptr.Gen_Pages.Webpage_Location)
 
 			mux.Get(name, func(w http.ResponseWriter, r *http.Request) {
 				defer func() {
@@ -35,11 +35,11 @@ func Add_Generic_Handlers(app_ptr *appconfig.AppConfig, mux *chi.Mux) error {
 				//Here we need to render the page...
 				var paths render.Render_Filepaths
 				paths.Filepath_Html = path
-				paths.Filepath_Layout = app_ptr.Layout_Location
+				paths.Filepath_Layout = app_ptr.Gen_Pages.Layout_Location
 
 				var data models.TemplateData
 				data.BoolMap = make(map[string]bool)
-				data.BoolMap["navbar"] = true
+				data.BoolMap["navbar"] = app_ptr.Gen_Pages.Add_Navbar
 				buf := render.Create_Rendered_Template(paths, &data)
 				buf.WriteTo(w)
 			})

@@ -9,8 +9,11 @@ func Initialise_App_Config() (app_ptr *AppConfig, err error) {
 	var app_config AppConfig
 	app_config.InProduction = false
 	app_config.Port = initialse_Port_Number()
-	app_config.Webpage_Location = "webpages"
-	app_config.Layout_Location = "webpages/layouts/*.layout.tmpl"
+	var Gen_Pages Generic_Pages
+	Gen_Pages.Webpage_Location = "webpages"
+	Gen_Pages.Layout_Location = "webpages/layouts/*.layout.tmpl"
+	Gen_Pages.Add_Navbar = true
+	app_config.Gen_Pages = Gen_Pages
 	return &app_config, nil
 }
 
