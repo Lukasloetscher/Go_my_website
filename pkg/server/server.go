@@ -29,7 +29,7 @@ func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 
 	/*
 	   TOSO move to correct place (create a function)
-	   TODO find out where to save images. I'm not sure, we should keep them in the docker file...
+	   TODO find out where to save images. I'm not sure, we should keep them in the docker file...s
 	*/
 	fileServer := http.FileServer(http.Dir("./webpages/0_static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
