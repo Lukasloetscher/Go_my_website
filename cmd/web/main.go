@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-
 	var app_ptr *appconfig.AppConfig
 	app_ptr, err := appconfig.Initialise_App_Config()
 	if err != nil {
@@ -38,3 +37,13 @@ func main() {
 	}
 
 }
+
+/*
+func tryout() {
+	filepath.WalkDir("webpages", func(path string, d fs.DirEntry, err error) error {
+		log.Println(path)
+		return nil
+	})
+
+}
+*/

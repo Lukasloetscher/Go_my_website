@@ -27,14 +27,13 @@ func Get_Template(paths Render_Filepaths) (template *template.Template) {
 
 // Load_Template_From_File() looks for the Tempalte at the Position and then returns this one.
 // TODO This might also load a template from Cache instead of the filestruct. NO instead create a new fucntion arround this, in order to load this from Cache!
-// TODO Implement Csachre.
+// TODO Implement Cache.
 // TODO missleading name
-func Load_Template_From_File(paths Render_Filepaths) (template *template.Template) {
+func Load_Template_From_File(paths Render_Filepaths) *template.Template {
 	ts, err := template.New(filepath.Base(paths.Filepath_Html)).ParseFiles(paths.Filepath_Html)
 	if err != nil {
 		panic(err)
 	}
-
 	if Check_If_Layout_Exists(paths.Filepath_Layout) {
 		ts, err = ts.ParseGlob(paths.Filepath_Layout)
 		if err != nil {
