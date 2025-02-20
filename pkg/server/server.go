@@ -26,6 +26,14 @@ func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 	if err != nil {
 		panic(err)
 	}
+
+	/*
+	   TOSO move to correct place (create a function)
+	   TODO find out where to save images. I'm not sure, we should keep them in the docker file...
+	*/
+	fileServer := http.FileServer(http.Dir("./webpages/0_static/"))
+	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
+
 	srv := Create_Server(app_ptr, mux)
 
 	go srv.ListenAndServe()
