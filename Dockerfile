@@ -39,7 +39,9 @@ COPY --from=build-stage /my_app /my_app
 #sadly even so the documentations says, this is optional, i need to do this here, and can not do this "only" in the docker desktop add on windows.
 EXPOSE 8080
 
-
+#We also need to Copy the tmpl files...
+#maybe check if we want those int he dockerfile, or rather in its own filesystem mounted to docker...
+ADD webpages/. webpages/.
  
 #makes it so the program is not run as root(?)
 USER nonroot:nonroot

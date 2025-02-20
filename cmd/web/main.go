@@ -1,10 +1,7 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"log"
-	"os"
 
 	"github.com/Lukasloetscher/Go_my_website/pkg/config/appconfig"
 	"github.com/Lukasloetscher/Go_my_website/pkg/server"
@@ -24,26 +21,6 @@ func main() {
 
 	//just wait till the program is ended.
 	//todo make this cleaner
-	if app_ptr.InProduction {
-		for {
-		} //endless loop
-	} else {
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("End the program by pressing enter")
-		_, err := reader.ReadString('\n')
-		if err != nil {
-			log.Fatal(err)
-		}
-	}
-
+	for {
+	} //endless loop
 }
-
-/*
-func tryout() {
-	filepath.WalkDir("webpages", func(path string, d fs.DirEntry, err error) error {
-		log.Println(path)
-		return nil
-	})
-
-}
-*/
