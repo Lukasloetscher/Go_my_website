@@ -21,7 +21,6 @@ func Create_Rendered_Template(paths Render_Filepaths, render_data *models.Templa
 
 // Get_Template() checks if the Tempalte already exists in cache and laods it, otherwise it loads it from the filepaths.
 func Get_Template(paths Render_Filepaths) (template *template.Template) {
-	//TODO Implement Logic for Cache!
 	return Load_Template_From_File(paths)
 }
 
