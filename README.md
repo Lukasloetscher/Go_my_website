@@ -1,26 +1,46 @@
-This is a simple go project to host wa websuite.
-The Project is in first place about learning stuff. 
-I restarted from the beginning, in order to incorporate Clean Code advice from the Book Clean Code from Robert C. Martins into it.
+# Go Project for Hosting WA Websuite
 
-Secondly i try to make the project in a way, that i start with a workjing website fast, and then expand on it over time. (Instead of letting the project die in perfection.)
-This also means that i will (or at least paln) to create the code fast,a nd then do multiple refractorings.
+The project is primarily for learning purposes. I restarted from the beginning to incorporate Clean Code advice from the book *Clean Code* by Robert C. Martin into it.
 
-Currebntly the website is build with docker and then deployed to a Ubuntu VM
+The goal is to quickly set up a working website and then expand on it over time. This means I plan to create the code quickly, then perform multiple refactorings. The approach is to avoid letting the project die in perfection.
 
-used commands:
- docker build --tag lukasloetscher/lulo_tryout .
- -> then use docker desktop to push it
- -> open cmd of ubuntu vm
- -> stop container 
-   -> docker ps
-   -> docker stop {name}
--> update the image
-  -> docker pull lukasloetscher/lulo_tryout
-  -> check with : docker images
--> start the docker: (maybe you need to change
-  -> docker run -d -p 80:8080 lukasloetscher/lulo_tryout
-  -> check with docker ps
-  -> check by visitign the webpage
+Currently, the website is built with Docker and then deployed to an Ubuntu VM.
 
-My notes:
-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+## Used Commands
+
+1. **Build Docker Image**
+    ```bash
+    docker build --tag lukasloetscher/lulo_tryout .
+    ```
+    -> Then use Docker Desktop to push it.
+
+2. **Open CMD on Ubuntu VM**
+    - Stop the container:
+        ```bash
+        docker ps
+        docker stop {name}
+        ```
+
+3. **Update the Image**
+    - Pull the updated image:
+        ```bash
+        docker pull lukasloetscher/lulo_tryout
+        ```
+    - Check with:
+        ```bash
+        docker images
+        ```
+
+4. **Start the Docker Container**
+    - Start the container (you may need to change ports):
+        ```bash
+        docker run -d -p 80:8080 lukasloetscher/lulo_tryout
+        ```
+    - Check with:
+        ```bash
+        docker ps
+        ```
+    - Check by visiting the webpage.
+
+## My Notes
+- [DigitalOcean: How to Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
