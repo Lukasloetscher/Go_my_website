@@ -2,6 +2,7 @@ package generichandlers
 
 import (
 	"io/fs"
+	"log"
 	"net/http"
 	"path/filepath"
 	"strings"
@@ -26,6 +27,8 @@ func Add_Generic_Handlers(app_ptr *appconfig.AppConfig, mux *chi.Mux) error {
 			data.BoolMap = make(map[string]bool)
 			data.BoolMap["navbar"] = app_ptr.Gen_Pages.Add_Navbar
 
+			log.Println(generate_generic_page_name(path, app_ptr))
+
 			mux.Get(generate_generic_page_name(path, app_ptr), func(w http.ResponseWriter, r *http.Request) {
 				defer htmlerrors.Catch_Panic_And_Report_Internal_Error(w)
 				buf := render.Create_Rendered_Template(paths, &data)
@@ -43,5 +46,8 @@ func generate_generic_page_name(path string, app_ptr *appconfig.AppConfig) strin
 	name, _ := strings.CutSuffix(path, ".generic_page.tmpl")
 	name = strings.ReplaceAll(name, "\\", "/")
 	name, _ = strings.CutPrefix(name, app_ptr.Gen_Pages.Webpage_Location)
+	if name != "/" && strings.HasSuffix(name, "/") {
+		name, _ = strings.CutSuffix(name, "/")
+	}
 	return name
 }
