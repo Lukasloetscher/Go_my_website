@@ -12,7 +12,7 @@ import (
 // Does currently not test content.
 func TestAdd_Generic_Handlers(t *testing.T) {
 	t.Run("Include_Middleware", func(t *testing.T) {
-		app_ptr, _ := appconfig.Initialise_App_Config()
+		app_ptr, _ := appconfig.Initialize_App_Config()
 		mux := chi.NewMux()
 		err := Add_Generic_Handlers(app_ptr, mux)
 		if err != nil {

@@ -28,7 +28,7 @@ func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 	}
 
 	/*
-	   TOSO move to correct place (create a function)
+	   TODO move to correct place (create a function)
 	   TODO find out where to save images. I'm not sure, we should keep them in the docker file...s
 	*/
 	fileServer := http.FileServer(http.Dir("./webpages/0_static/"))
@@ -47,4 +47,13 @@ func Create_Server(app_ptr *appconfig.AppConfig, mux *chi.Mux) *http.Server {
 		Handler: mux,
 	}
 	return srv
+}
+
+// Start_Server() Starts the Server. Depending on teh appconfig setting either in http or https mode.
+func Start_Server(app_ptr *appconfig.AppConfig, srv *http.Server) {
+	if app_ptr.SecureWebpage {
+		go srv.ListenAndServeTLS("todo", "todo")
+	} else {
+		go srv.ListenAndServe()
+	}
 }

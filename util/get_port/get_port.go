@@ -21,8 +21,8 @@ func check_If_Valid_Port(port string) (ok bool) {
 
 const port_env string = "PORT"
 
-// Get_Port_From_Env() gets thed port from the envirement. Used for docker.
-// When the env variable is not set, it defauls to 8080
+// Get_Port_From_Env() gets the port from the environment. Used for docker.
+// When the env variable is not set, it defaults to 8080
 func Get_Port_From_Env() (port string) {
 	port, ok := os.LookupEnv(port_env)
 	if ok {

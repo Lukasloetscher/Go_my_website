@@ -9,9 +9,9 @@ import (
 
 func main() {
 	var app_ptr *appconfig.AppConfig
-	app_ptr, err := appconfig.Initialise_App_Config()
+	app_ptr, err := appconfig.Initialize_App_Config()
 	if err != nil {
-		log.Fatal("error with initialising_App_Config")
+		log.Fatal("error with initializing_App_Config")
 	}
 
 	err = server.Create_and_Start_Server(app_ptr)

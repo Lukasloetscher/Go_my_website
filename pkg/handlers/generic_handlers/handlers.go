@@ -15,7 +15,7 @@ import (
 )
 
 // Add_Generic_Handlers()
-// adds the handlers to the code, whicha re generated automatically, based on the files in the specifided fodler
+// adds the handlers to the code, which are generated automatically, based on the files in the specified folder
 func Add_Generic_Handlers(app_ptr *appconfig.AppConfig, mux *chi.Mux) error {
 
 	err := filepath.WalkDir(app_ptr.Gen_Pages.Webpage_Location, func(path string, d fs.DirEntry, err error) error {

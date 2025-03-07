@@ -11,7 +11,7 @@ import (
 // Currently only checks if the this goes through without an error.
 func TestCreate_and_Start_Server(t *testing.T) {
 	t.Run("Create_and_Start_Server", func(t *testing.T) {
-		app_ptr, _ := appconfig.Initialise_App_Config()
+		app_ptr, _ := appconfig.Initialize_App_Config()
 		err := Create_and_Start_Server(app_ptr)
 		if err != nil {
 			t.Error()
@@ -24,7 +24,7 @@ func TestCreate_and_Start_Server(t *testing.T) {
 func TestCreate_Server(t *testing.T) {
 	t.Run("Create_and_Start_Server", func(t *testing.T) {
 		mux := chi.NewRouter()
-		app_ptr, _ := appconfig.Initialise_App_Config()
+		app_ptr, _ := appconfig.Initialize_App_Config()
 		srv := Create_Server(app_ptr, mux)
 		if srv == nil {
 			t.Error()
