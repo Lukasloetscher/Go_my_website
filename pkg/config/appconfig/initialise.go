@@ -15,8 +15,8 @@ func Initialize_App_Config() (app_ptr *AppConfig, err error) {
 	app_config.InProduction = initialize_In_Production()
 	app_config.SecureWebpage = app_config.InProduction //for simplicity. i want to load this from an env file later anyway...
 	var certificates Certificate_location
-	certificates.Location_certFile = "todo"
-	certificates.Location_keyFile = "todo"
+	certificates.Location_certFile = "mount/certificates/https/certFile"
+	certificates.Location_keyFile = "mount/certificates/https/keyFile"
 	app_config.SecureWebpageCerts = certificates
 	app_config.Port = initialize_Port_Number()
 	app_config.Channel_Server_Restart = make(chan error)
