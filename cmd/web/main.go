@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/Lukasloetscher/Go_my_website/pkg/config/appconfig"
 	"github.com/Lukasloetscher/Go_my_website/pkg/server"
@@ -19,8 +20,33 @@ func main() {
 		log.Fatal("error with starting the server")
 	}
 
-	//just wait till the program is ended.
-	//todo make this cleaner
+	//todo this should be refactored into better read able code.
+	var restart_count int
+	restart_count = 0
 	for {
-	} //endless loop
+		select {
+		case Server_did_shut_down := <-app_ptr.Channel_Server_Restart:
+			log.Println("Received Signal that Server shut down.")
+			log.Println(Server_did_shut_down)
+			if app_ptr.RestartServerWhenShutdown {
+				restart_count += 1
+				log.Println("restart_count = ", restart_count)
+
+				if restart_count > 10 { //we should reset this variable after some time...
+					log.Println("Exiting program after too many restarts attempts.")
+					os.Exit(-1)
+				}
+
+				log.Println("restarting server")
+				err = server.Create_and_Start_Server(app_ptr)
+				if err != nil {
+					log.Fatal("error with starting the server")
+				}
+			} else {
+				log.Println("Terminating program")
+				os.Exit(-1)
+			}
+		}
+	}
+
 }

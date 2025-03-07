@@ -1,6 +1,7 @@
 package server
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/Lukasloetscher/Go_my_website/pkg/config/appconfig"
@@ -36,7 +37,7 @@ func Create_and_Start_Server(app_ptr *appconfig.AppConfig) error {
 
 	srv := Create_Server(app_ptr, mux)
 
-	go srv.ListenAndServe()
+	go Start_Server(app_ptr, srv)
 	return nil
 }
 
@@ -51,9 +52,18 @@ func Create_Server(app_ptr *appconfig.AppConfig, mux *chi.Mux) *http.Server {
 
 // Start_Server() Starts the Server. Depending on teh appconfig setting either in http or https mode.
 func Start_Server(app_ptr *appconfig.AppConfig, srv *http.Server) {
-	if app_ptr.SecureWebpage {
-		go srv.ListenAndServeTLS("todo", "todo")
+	var err error
+	if app_ptr.SecureWebpage || true {
+		log.Println("started secure https server")
+		err = srv.ListenAndServeTLS("todo", "todo")
+
 	} else {
-		go srv.ListenAndServe()
+		log.Println("started server with http instead of https")
+		err = srv.ListenAndServe()
 	}
+	log.Println(err)
+	app_ptr.Channel_Server_Restart <- err
+	//TODO if this code is executed, we want to receive an email or something, so we know that we need to restart the server,
+	//Also note that such a way to inform us, is a bit problematic, since we can not be sure that, this email arrives in each case...
+	//maybe we should instead surveil the container.
 }
