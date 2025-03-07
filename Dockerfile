@@ -11,8 +11,8 @@ RUN go mod download
 
 # Copy the source code. Note the slash at the end, as explained in
 # https://docs.docker.com/reference/dockerfile/#copy
-#note that i will probably also need to copy the content ogf the fiolder webpages, as soon as i load them
-#or maybe it is cleaner to instead mounbt them to the container?
+#note that i will probably also need to copy the content ogf the folder webpages, as soon as i load them
+#or maybe it is cleaner to instead mount them to the container?
 #TODO try out and find out:)
 #note this works but is not so nice as it also copies test files. 
 #todo find better solution
