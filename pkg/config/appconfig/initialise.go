@@ -30,7 +30,9 @@ func Initialize_App_Config() (app_ptr *AppConfig, err error) {
 }
 
 func initialize_Port_Number() string {
-	return ":" + getPort.Get_Port_From_Env()
+	port := ":" + getPort.Get_Port_From_Env()
+	log.Println("Initialized with port ", port)
+	return port
 }
 
 const isProd_env = "PROD"
