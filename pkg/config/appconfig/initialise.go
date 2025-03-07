@@ -17,7 +17,7 @@ func Initialize_App_Config() (app_ptr *AppConfig, err error) {
 	var certificates Certificate_location
 	certificates.Location_certFile = "todo"
 	certificates.Location_keyFile = "todo"
-	app_ptr.SecureWebpageCerts = certificates
+	app_config.SecureWebpageCerts = certificates
 	app_config.Port = initialize_Port_Number()
 	app_config.Channel_Server_Restart = make(chan error)
 	app_config.RestartServerWhenShutdown = true
