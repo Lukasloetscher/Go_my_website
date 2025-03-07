@@ -40,24 +40,3 @@ p {
     color: #666;
     line-height: 1.6;
 }
-
-.work-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .work-container {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-}
