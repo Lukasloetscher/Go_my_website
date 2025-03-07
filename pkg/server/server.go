@@ -53,9 +53,9 @@ func Create_Server(app_ptr *appconfig.AppConfig, mux *chi.Mux) *http.Server {
 // Start_Server() Starts the Server. Depending on teh appconfig setting either in http or https mode.
 func Start_Server(app_ptr *appconfig.AppConfig, srv *http.Server) {
 	var err error
-	if app_ptr.SecureWebpage || true {
+	if app_ptr.SecureWebpage {
 		log.Println("started secure https server")
-		err = srv.ListenAndServeTLS("todo", "todo")
+		err = srv.ListenAndServeTLS(app_ptr.SecureWebpageCerts.Location_certFile, app_ptr.SecureWebpageCerts.Location_keyFile)
 
 	} else {
 		log.Println("started server with http instead of https")

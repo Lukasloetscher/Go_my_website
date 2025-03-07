@@ -31,7 +31,10 @@ func main() {
 			if app_ptr.RestartServerWhenShutdown {
 				restart_count += 1
 				log.Println("restart_count = ", restart_count)
-
+				if restart_count > 5 && app_ptr.SecureWebpage {
+					log.Println("switching from https to http due to many failed starts.")
+					app_ptr.SecureWebpage = false
+				}
 				if restart_count > 10 { //we should reset this variable after some time...
 					log.Println("Exiting program after too many restarts attempts.")
 					os.Exit(-1)
