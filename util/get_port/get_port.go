@@ -33,6 +33,6 @@ func Get_Port_From_Env() (port string) {
 			panic("No Valid Portnumber was entered.")
 		}
 	} else {
-		return "8080" //default case, if the port is not defined in the envirement.
+		return "8080" //default case, if the port is not defined in the environment.
 	}
 }

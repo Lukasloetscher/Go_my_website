@@ -3,13 +3,17 @@
         "ABAP",
         "appconfig",
         "cleancode",
+        "fullchain",
         "Kantonsschule",
+        "letsencrypt",
+        "loetscher",
         "Lötscher",
         "Lukas",
         "Lukasloetscher",
         "mathbooks",
         "Matura",
         "Portnumber",
+        "privkey",
         "tmpl"
     ]
 }
