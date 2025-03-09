@@ -37,7 +37,7 @@ Currently, the website is built with Docker and then deployed to an Ubuntu VM.
         docker run -d -p 80:8080 lukasloetscher/lulo_tryout
         ```
         ```bash
-        docker run -d -p 443:8080 -e PROD=true  lukasloetscher/lulo_tryout
+        docker run -d -p 80:8080 -e PROD=true --restart always lukasloetscher/lulo_tryout
         ```
     - Check with:
         ```bash
