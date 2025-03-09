@@ -54,4 +54,5 @@ Currently, the website is built with Docker and then deployed to an Ubuntu VM.
 - https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
 ## TODO
-- Set up nicer wy to shut down the server...
+- Set up nicer way to shut down the server...
+
