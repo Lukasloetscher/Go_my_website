@@ -36,6 +36,13 @@ Currently, the website is built with Docker and then deployed to an Ubuntu VM.
         ```bash
         docker run -d -p 80:8080 lukasloetscher/lulo_tryout
         ```
+        ```bash
+        docker run -d -p 80:8080 -e PROD=true --restart always lukasloetscher/lulo_tryout
+        ```
+    - The following command starts the server in https mode. In order for this to work, you need to have certfiles in it. in my case i use certbot (look inside the utility script folder)
+         ```bash
+        docker run -d -p 443:8080 -e PROD=true --restart always -v /srv/certificates:/mount/certificates:ro lukasloetscher/lulo_tryout
+        ```
     - Check with:
         ```bash
         docker ps
@@ -44,3 +51,8 @@ Currently, the website is built with Docker and then deployed to an Ubuntu VM.
 
 ## My Notes
 - [DigitalOcean: How to Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+- https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
+
+## TODO
+- Set up nicer way to shut down the server...
+
