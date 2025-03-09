@@ -1,7 +1,9 @@
+#!/bin/bash
+
 #this file needs to be run as sudo
 #i recommend to run this script each night at around 2am, to minimize impact to users.
 
-#stop docker so w can reload the certificates
+#stop docker so we can reload the  (also remove the old docker container)
 docker stop lulo_portfolio
 docker rm lulo_portfolio
 #since we already stopped it, we can as well update the repo.
