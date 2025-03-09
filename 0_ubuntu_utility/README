@@ -1,0 +1,56 @@
+# Maintenance Scripts Deployment Instructions
+
+## Copy Files to the Server
+- Open a shell script here (in this folder)
+- Use the following command:
+
+```bash
+scp -r maintenance_scripts/ lukas@159.223.24.23:/srv/
+```
+
+## First-time Setup
+- The first time you do this, you need to first create the repository and make it accessible for all users:
+
+```bash
+sudo mkdir maintenance_scripts
+sudo chmod 777 maintenance_scripts/
+```
+
+## Set up a Crontab
+- Then you need to set up a crontab like follows:
+
+```bash
+sudo crontab -e
+```
+
+- I recommend something along the lines of:
+
+```bash
+30 1 * * * sudo /srv/maintenance_scripts/update_cert.sh >> /srv/maintenance_scripts/logs/cert.log 2>&1
+0 2 * * * sudo /srv/maintenance_scripts/update_ubuntu.sh >> /srv/maintenance_scripts/logs/ubuntu.log 2>&1
+```
+
+## Grant sudo Permission for Scripts
+- In order for sudo to work, you will also need to add permission for the scripts to be run as sudo without a password:
+
+```bash
+sudo visudo
+```
+
+- Then add the line:
+
+```bash
+username ALL=(ALL) NOPASSWD: /srv/maintenance_scripts/update_cert.sh
+username ALL=(ALL) NOPASSWD: /srv/maintenance_scripts/update_ubuntu.sh
+```
+
+## Create Log Files
+- You also need to create log files, which will be used to write the logs of the scripts into:
+
+```bash
+touch cert.log
+touch ubuntu.log
+```
+
+## To Do
+- Add a script to make log rolling.
