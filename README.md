@@ -52,3 +52,6 @@ Currently, the website is built with Docker and then deployed to an Ubuntu VM.
 ## My Notes
 - [DigitalOcean: How to Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
 - https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
+
+## TODO
+- Set up nicer wy to shut down the server...
