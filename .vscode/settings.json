@@ -4,7 +4,9 @@
         "appconfig",
         "certbot",
         "cleancode",
+        "Datadriven",
         "fullchain",
+        "helpdesk",
         "Kantonsschule",
         "letsencrypt",
         "loetscher",
@@ -17,6 +19,9 @@
         "NOPASSWD",
         "Portnumber",
         "privkey",
-        "tmpl"
+        "Pullrequest",
+        "SIGA",
+        "tmpl",
+        "Traineestage"
     ]
 }
