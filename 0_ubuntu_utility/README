@@ -26,7 +26,7 @@ sudo crontab -e
 - I recommend something along the lines of:
 
 ```bash
-30 1 * * * sudo /srv/maintenance_scripts/update_cert.sh >> /srv/maintenance_scripts/logs/cert.log 2>&1
+30 1 1,15 * * sudo /srv/maintenance_scripts/update_cert.sh >> /srv/maintenance_scripts/logs/cert.log 2>&1
 0 2 * * * sudo /srv/maintenance_scripts/update_ubuntu.sh >> /srv/maintenance_scripts/logs/ubuntu.log 2>&1
 ```
 
