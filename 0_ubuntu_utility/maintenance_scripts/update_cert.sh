@@ -3,6 +3,9 @@
 #this file needs to be run as sudo
 #i recommend to run this script each night at around 2am, to minimize impact to users.
 
+#in order to make the log better readable.
+echo $(date -u)
+
 #stop docker so we can reload the  (also remove the old docker container)
 docker stop lulo_portfolio
 docker rm lulo_portfolio
