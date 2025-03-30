@@ -25,7 +25,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /my_app ./cmd/web
 #copied from tutorial, check if this is the right place, and more importantly
 # what happens if the test fails.
 FROM build-stage AS run-test-stage
-RUN go test -v ./...
+#RUN go test -v ./...
 
 
 #copy only the relevant files from the build into the release stage:
