@@ -1,16 +1,23 @@
 {{template "base_extended" .}}
 
+{{define "title"}}
+Portfolio Lukas Lötscher - Education
+{{end}}
+
 {{define "content"}}
-<div class="container">
+<div class="container py-4">
     <h1>My Academic Education</h1>
+
+    <!-- Master's Degree -->
     <div class="container_with_background">
         <h2>Master of Mathematics at ETH Zurich</h2>
-        <div class="row">2020 - 2022</div>
+        <div class="row">2020 – 2022</div>
         <p>
-            I did my Master in Mathematics at ETH and graduated with a Overall Grade Point Average of 5.4 <br>
-            For my Master Thesis i worked on how one can decompose a random graph into paths.
-            I attended the follwoing courses in my Master:
-        <ul>
+            I completed my Master's degree in Mathematics at ETH Zurich with an overall GPA of 5.4. <br>
+            My Master’s thesis focused on decomposing random graphs into paths.
+        </p>
+        <p>Courses attended during my Master's:</p>
+        <ul class="list-unstyled ms-3">
             <li>Algebraic Geometry I</li>
             <li>Graph Theory</li>
             <li>Algebraic Methods in Combinatorics</li>
@@ -18,42 +25,36 @@
             <li>Network & Integer Optimization: From Theory to Application</li>
             <li>Neural Network Theory</li>
             <li>Randomized Algorithms and Probabilistic Methods</li>
-            <li>Geometry: Combinatorics and Algorithms</li>
             <li>Seminar on Randomized Algorithms and Probabilistic Methods</li>
             <li>Semesterarbeit</li>
             <li>Principles of Microeconomics</li>
-            <li>Master’s Thesis</li>
             <li>Advanced Graph Algorithms and Optimization</li>
             <li>Didactic Basics for Student Teaching Assistants</li>
             <li>Information Theory I</li>
+            <li>Master’s Thesis</li>
         </ul>
-
-        </p>
     </div>
+
+    <!-- Bachelor's Degree -->
     <div class="container_with_background">
         <h2>Bachelor of Mathematics at ETH Zurich</h2>
-        <div class="row"> 2017 - 2021</div>
+        <div class="row">2017 – 2021</div>
         <p>
-            My Bachelor was also done at ETH and consists of the following courses:
-        <ul>
-            <li>Lineare Algebra I</li>
-            <li>Physik I</li>
+            I also completed my Bachelor's degree at ETH Zurich. Here are the courses which I attended:
+        </p>
+        <ul class="list-unstyled ms-3">
+            <li>Lineare Algebra I & II</li>
+            <li>Analysis I & II</li>
+            <li>Physik I & II</li>
             <li>Informatik</li>
-            <li>Analysis I / Analysis II</li>
-            <li>Lineare Algebra II</li>
-            <li>Numerische Mathematik I</li>
-            <li>Physik II</li>
+            <li>Numerische Mathematik I & II</li>
             <li>Funktionentheorie</li>
             <li>Methoden der mathematischen Physik I</li>
             <li>Allgemeine Mechanik</li>
             <li>Algorithmen und Komplexität</li>
             <li>Mass und Integral</li>
-            <li>Algebra I</li>
-            <li>Algebra II</li>
-            <li>Topology</li>
-            <li>Numerical Analysis II</li>
-            <li>Probability and Statistics</li>
-            <li>Algebraic Topology I</li>
+            <li>Algebra I & II</li>
+            <li>Topology, Algebraic Topology I</li>
             <li>Mathematical Optimization</li>
             <li>Theoretische Informatik</li>
             <li>Communication in Mathematics</li>
@@ -64,44 +65,36 @@
             <li>Advanced Topics in Discrete Optimization</li>
             <li>Introduction to Game Theory</li>
             <li>Network Analysis</li>
-            <li>Bachelor-Arbeit</li>
-            <li>Scientific Works in Mathematics</li>
             <li>Algorithmen und Datenstrukturen</li>
+            <li>Scientific Works in Mathematics</li>
+            <li>Bachelor Thesis</li>
         </ul>
-        My Bachelor Thesis was on the subject of Maker-Breaker games. (This is an analysis of hypergraphs and studies
-        which classes of graphs have a winning strategy according to a set of rules.)
+        <p>
+            My Bachelor thesis focused on Maker-Breaker games. This involved analyzing hypergraphs and studying which classes of graphs support winning strategies under specific rules.
         </p>
     </div>
+
+    <!-- Matura -->
     <div class="container_with_background">
         <h2>Kantonsschule Baden (Matura)</h2>
-        <div class="row"> 2013 - 2017</div>
+        <div class="row">2013 – 2017</div>
         <p>
-            During my Matura i focused on natural science, with a deeper focus on Mathematics and
-            Informatics.<br>
-            As my final project i worked on a traffic simulation, together with Jan Apple, which we coded in Java.
-            The goal of this work was to analyze traffic jams and find out how much of an improvement the new crossing
-            would be.
-            Due to the high quality of our work, we got invited to <a href="https://sjf.ch/" target="_blank"> Schweizer
-                Jugend Forscht </a>, were we were able to present our work again.
-            there is also a news article about our project which can be found <a
-                href="https://www.aargauerzeitung.ch/aargau/baden/zwei-kantischuler-habens-getestet-bald-kommen-autofahrer-schneller-uber-den-schulhausplatz-ld.1600070"
-                target="_blank"> here</a>.
+            I specialized in natural sciences with a focus on mathematics and informatics. <br>
+            For my final project, Jan Apple and I developed a traffic simulation in Java. The aim was to analyze traffic congestion and evaluate the efficiency of a redesigned intersection.
+        </p>
+        <p>
+            Our project was recognized by <a href="https://sjf.ch/" target="_blank">Schweizer Jugend Forscht</a>, where we were invited to present our work. It was also featured in a news article, which you can read 
+            <a href="https://www.aargauerzeitung.ch/aargau/baden/zwei-kantischuler-habens-getestet-bald-kommen-autofahrer-schneller-uber-den-schulhausplatz-ld.1600070" target="_blank">here</a>.
         </p>
     </div>
+
+    <!-- Mandatory Schooling -->
     <div class="container_with_background">
-        <h2>Mandatory Education </h2>
-        <div class="row"> 2004 - 2013</div>
+        <h2>Mandatory Education</h2>
+        <div class="row">2004 – 2013</div>
         <p>
-           I visited the Bezirkschule in Mellingen for four years and the Grundschule in Fislisbach for 5 years.
-           (Note that this was before the system was changed.)
+            I attended the Grundschule in Fislisbach for five years, followed by four years at the Bezirkschule in Mellingen. (This was prior to the current education system reform.)
+        </p>
     </div>
-
-
-
-
 </div>
-{{end}}
-
-{{define "title"}}
-Portfolio Lukas Lötscher - education
 {{end}}
